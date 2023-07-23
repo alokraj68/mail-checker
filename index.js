@@ -53,7 +53,7 @@ fs.readFile("./" + Main.GetArgs()[2], "utf8", (err, data) => {
             tls: true
         });
 
-        imap.once('ready', function() {
+        imap.once('ready', function () {
             console.log(chalk.hex('#d6af42')(Main.formatConsoleDate(new Date())) + chalk.green(item.split(":")[0] + " Saved to checked.txt ."))
             fs.appendFile('./checked.txt', `${item.split(":")[0]}:${item.split(":")[1]} \r\n`, function (err) {
                 if (err) return console.log(err);
@@ -62,7 +62,8 @@ fs.readFile("./" + Main.GetArgs()[2], "utf8", (err, data) => {
             imap.end();
         });
 
-        imap.once('error', function(err) {
+        imap.once('error', function (err) {
+            console.log(chalk.hex('#d6af42')(Main.formatConsoleDate(new Date())) + chalk.red(item.split(":")[0] + err))
             console.log(chalk.hex('#d6af42')(Main.formatConsoleDate(new Date())) + chalk.red(item.split(":")[0] + " error while connecting."))
             imap.end();
         });

@@ -14,4 +14,5 @@ user@domain:~# cd ./mail-checker/
 user@domain:~# chmod 777 index.js
 user@domain:~# npm install
 user@domain:~# node ./index.js <server> <port> <file>
+node index.js imap.server.com 993 data.txt
 ```
